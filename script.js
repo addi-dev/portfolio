@@ -61,7 +61,7 @@ const skills = {
   ],
   backend: [
     { name: "PHP", icon: "fa-brands fa-php", level: 92 },
-    { name: "PHP", icon: "fa-brands fa-php", level: 92 },
+    { name: "Laravel", icon: "fa-brands fa-laravel", level: 92 },
   ],
   database: [
     { name: "MongoDB", icon: "🍃", level: 82 },
