@@ -633,12 +633,30 @@ function initContactForm() {
     btn.disabled = true;
     btn.querySelector("span").textContent = "Sending...";
 
-    // Simulate async send (replace with real API call)
-    await new Promise((res) => setTimeout(res, 1800));
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
 
-    status.textContent = "✓ Message sent! I'll get back to you within 24h.";
-    status.className = "form-status success";
-    form.reset();
+      if (response.ok) {
+        status.textContent = "✓ Message sent! I'll get back to you within 24h.";
+        status.className = "form-status success";
+        form.reset();
+      } else {
+        const data = await response.json();
+        const msg =
+          data?.errors?.map((e) => e.message).join(", ") ||
+          "Something went wrong.";
+        status.textContent = "✗ " + msg;
+        status.className = "form-status error";
+      }
+    } catch {
+      status.textContent = "✗ Network error — please try again.";
+      status.className = "form-status error";
+    }
+
     btn.disabled = false;
     btn.querySelector("span").textContent = "Send Message";
 
