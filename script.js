@@ -64,8 +64,8 @@ const skills = {
     { name: "Laravel", icon: "fa-brands fa-laravel", level: 92 },
   ],
   database: [
-    { name: "MongoDB", icon: "🍃", level: 82 },
-    { name: "MySQL", icon: "🐬", level: 85 },
+    { name: "MongoDB", icon: "fa-solid fa-leaf", level: 82 },
+    { name: "MySQL", icon: "fa-solid fa-database", level: 85 },
   ],
   tools: [
     { name: "Git / GitHub", icon: "fa-brands fa-git-alt", level: 95 },
