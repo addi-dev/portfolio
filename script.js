@@ -45,7 +45,7 @@ const about = {
     },
     { key: "Location", value: "Remote / Worldwide" },
     { key: "Focus", value: "Full Stack & Architecture" },
-    { key: "Email", value: "alex@mercer.dev" },
+    { key: "Email", value: "flextoon.yt2005@gmail.com" },
     { key: "Degree", value: "BSc Computer Science" },
   ],
 };
@@ -69,13 +69,8 @@ const skills = {
   ],
   tools: [
     { name: "Git / GitHub", icon: "fa-brands fa-git-alt", level: 95 },
-    // { name: "AWS", icon: "☁️", level: 80 },
-    // { name: "Vercel", icon: "▲", level: 90 },
-    // { name: "CI/CD", icon: "♻️", level: 82 },
-    { name: "Figma", icon: "🎭fa-brands fa-figma", level: 75 },
+    { name: "Figma", icon: "fa-brands fa-figma", level: 75 },
     { name: "Linux", icon: "fa-brands fa-linux", level: 85 },
-    // { name: "Webpack", icon: "📦", level: 78 },
-    // { name: "Jest", icon: "🃏", level: 80 },
   ],
 };
 
@@ -202,35 +197,35 @@ const contactInfo = [
   {
     icon: "fa-solid fa-envelope",
     label: "Email",
-    value: "alex@mercer.dev",
-    href: "mailto:alex@mercer.dev",
+    value: "flextoon.yt2005@gmail.com",
+    href: "mailto:flextoon.yt2005@gmail.com",
   },
   {
     icon: "fa-brands fa-github",
     label: "GitHub",
-    value: "github.com/alexmercer",
-    href: "https://github.com",
+    value: "github.com/addi-dev",
+    href: "https://github.com/addi-dev",
   },
   {
     icon: "fa-brands fa-linkedin",
     label: "LinkedIn",
-    value: "linkedin.com/in/alexmercer",
+    value: "linkedin.com/in/mohammedaddi",
     href: "https://linkedin.com",
   },
   {
     icon: "fa-solid fa-globe",
     label: "Website",
-    value: "alexmercer.dev",
-    href: "https://example.com",
+    value: "addi-dev.github.io",
+    href: "https://addi-dev.github.io",
   },
 ];
 
 /** Social links for footer */
 const socials = [
-  { icon: "fa-brands fa-github", href: "https://github.com" },
-  { icon: "fa-brands fa-linkedin", href: "https://linkedin.com" },
-  { icon: "fa-brands fa-twitter", href: "https://twitter.com" },
-  { icon: "fa-solid fa-globe", href: "https://example.com" },
+  { icon: "fa-brands fa-github", href: "https://github.com/addi-dev" },
+  { icon: "fa-brands fa-linkedin", href: "https://linkedin.com/" },
+  { icon: "fa-brands fa-twitter", href: "https://twitter.com/" },
+  { icon: "fa-solid fa-globe", href: "https://addi-dev.github.io" },
 ];
 
 /* ============================================================
@@ -474,7 +469,7 @@ function renderContact() {
 function renderFooter() {
   const year = new Date().getFullYear();
   document.getElementById("footerCopy").textContent =
-    `© ${year} Alex Mercer — Built with HTML, CSS & Vanilla JS`;
+    `© ${year} Mohammed Addi — Built with HTML, CSS & Vanilla JS`;
 
   document.getElementById("footerSocials").innerHTML = socials
     .map(
@@ -692,6 +687,17 @@ function initParallax() {
   });
 }
 
+/** Back to top button */
+function initBackToTop() {
+  const btn = document.getElementById("backToTop");
+  window.addEventListener("scroll", () => {
+    btn.classList.toggle("visible", window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
 /* ============================================================
    BOOT — Initialize everything
    ============================================================ */
@@ -715,4 +721,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactForm();
   initSmoothScroll();
   initParallax();
+  initBackToTop()
 });
